@@ -7,6 +7,7 @@
   --secondary-text-color-theme-dark: rgba(255, 255, 255, 0.6);
   --white-color: #ffffff;
   --black-color: #000000;
+  --black-color-opacity: rgba(0, 0, 0, 0.2);
   --accent-color: #2196f3;
   --accent-color-opacity: rgba(33, 150, 243, 0.9);
   --icon-color: #afb1b8;
@@ -656,4 +657,29 @@ body {
   letter-spacing: 0.03em;
 
   color: var(--secondary-text-color);
+}
+
+/* =========================== MODAL ===========================*/
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: var(--black-color-opacity);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+
+  background-color: var(--white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 }
