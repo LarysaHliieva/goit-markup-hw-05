@@ -594,18 +594,16 @@ body {
 .gallery-img-wrap {
   position: relative;
 
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
-  align-items: center;
   width: 100%;
   height: 100%;
-  padding: 24px;
+  display: flex;
 
   font-size: 18px;
   line-height: 1.56;
@@ -618,6 +616,13 @@ body {
 
   transform: translateY(100%);
   transition: transform var(--duration) var(--timing-func);
+}
+
+.overlay-text {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 100%;
+  padding: 24px;
 }
 
 .gallery-item:hover {
