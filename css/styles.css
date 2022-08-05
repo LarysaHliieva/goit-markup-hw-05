@@ -12,6 +12,7 @@
   --icon-bg-color-theme-dark: rgba(255, 255, 255, 0.1);
 
   --bg-color-theme-dark: #2f303a;
+  --bg-color-theme-dark-opacity: rgba(47, 48, 58, 0.8);
   --secondary-bg-color: #f5f4fa;
   --hero-bg-color: #c4c4c4;
   --primary-border-color: #eeeeee;
@@ -20,7 +21,7 @@
   --item-set-gap: 30px;
 
   --timing-func: cubic-bezier(0.4, 0, 0.2, 1);
-  --duration: 2500ms;
+  --duration: 250ms;
 }
 
 h1,
@@ -339,7 +340,27 @@ body {
 }
 
 .direction {
+  position: relative;
+
   flex-basis: calc((100% - 2 * var(--item-set-gap)) / 3);
+}
+
+.direction-name {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-top: 27px;
+  padding-bottom: 27px;
+
+  font-weight: 700;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: var(--white-color);
+  background-color: var(--bg-color-theme-dark-opacity);
 }
 
 /* =========================== ABOUT =========================== */
