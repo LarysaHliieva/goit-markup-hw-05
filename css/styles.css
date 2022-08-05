@@ -7,11 +7,12 @@
   --secondary-text-color-theme-dark: rgba(255, 255, 255, 0.6);
   --white-color: #ffffff;
   --black-color: #000000;
-  --black-color-opacity: rgba(0, 0, 0, 0.2);
   --accent-color: #2196f3;
-  --accent-color-opacity: rgba(33, 150, 243, 0.9);
   --icon-color: #afb1b8;
   --icon-bg-color-theme-dark: rgba(255, 255, 255, 0.1);
+
+  --black-color-backdrop: rgba(0, 0, 0, 0.2);
+  --accent-color-overlay: rgba(33, 150, 243, 0.9);
 
   --bg-color-theme-dark: #2f303a;
   --bg-color-theme-dark-opacity: rgba(47, 48, 58, 0.8);
@@ -611,7 +612,7 @@ body {
   letter-spacing: 0.03em;
 
   color: var(--white-color);
-  background-color: var(--accent-color-opacity);
+  background-color: var(--accent-color-overlay);
 
   overflow-y: auto;
 
@@ -664,17 +665,27 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 100;
   width: 100vw;
   height: 100vh;
 
-  background-color: var(--black-color-opacity);
+  background-color: var(--black-color-backdrop);
+
+  transition: opacity var(--duration) var(--timing-func),
+    visibility var(--duration) var(--timing-func);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   width: 528px;
   height: 581px;
 
@@ -682,4 +693,26 @@ body {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transition: transform var(--duration) var(--timing-func);
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--white-color);
 }
